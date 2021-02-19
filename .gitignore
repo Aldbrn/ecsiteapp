@@ -1,0 +1,8 @@
+*.pyc
+*~
+/.vscode
+__pycache__
+/static
+/media
+.DS_Store
+local_settings.py
