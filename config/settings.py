@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "users.apps.UsersConfig",
+    "app.apps.AppConfig",
 ]
 
 AUTH_USER_MODEL = "users.User"
@@ -125,4 +126,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+LOGIN_URL = "app:login"
+
+LOGIN_REDIRECT_URL = "app:index"
+
+LOGOUT_REDIRECT_URL = "app:index"
+
 STATIC_URL = "/static/"
+
+MEDIA_ROOT = BASE_DIR / "media"
+
+MEDIA_URL = "/media/"
