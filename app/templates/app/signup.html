@@ -1,9 +1,9 @@
-{% extends 'app/base.html' %}
+{% extends "app/base.html" %}
 
 {% block content %}
 
 <h2>ユーザー登録</h2>
-<form method="POST" action="{% url 'app:signup' %}">{% csrf_token %}
+<form method="POST" action="{% url "app:signup" %}">{% csrf_token %}
   <label>メールアドレス</label>
   {{ form.email }}
   {{ form.email.errors }}

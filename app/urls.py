@@ -15,6 +15,12 @@ urlpatterns = [
     ),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
     path("product/<int:product_id>/", views.detail, name="detail"),
+    path("fav_products/", views.fav_products, name="fav_products"),
+    path(
+        "toggle_fav_product_status/",
+        views.toggle_fav_product_status,
+        name="toggle_fav_product_status",
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

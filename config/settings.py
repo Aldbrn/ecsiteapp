@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     "users.apps.UsersConfig",
     "app.apps.AppConfig",
 ]
@@ -133,6 +134,8 @@ LOGIN_REDIRECT_URL = "app:index"
 LOGOUT_REDIRECT_URL = "app:index"
 
 STATIC_URL = "/static/"
+
+STATICFILES_DIRS = [str(BASE_DIR / "static")]
 
 MEDIA_ROOT = BASE_DIR / "media"
 
