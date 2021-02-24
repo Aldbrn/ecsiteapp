@@ -27,6 +27,7 @@ urlpatterns = [
         views.change_product_amount,
         name="change_product_amount",
     ),
+    path("order_histry/", views.order_histry, name="order_histry"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

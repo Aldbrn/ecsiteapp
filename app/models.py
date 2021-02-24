@@ -20,4 +20,4 @@ class Sale(models.Model):
     amount = models.PositiveIntegerField("購入金額", default=0)
     price = models.PositiveIntegerField("商品単価")
     total_price = models.PositiveIntegerField("小計")
-    created_at = models.DateTimeField(auto_now=False)
+    created_at = models.DateTimeField(auto_now=True)

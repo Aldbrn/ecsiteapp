@@ -6,6 +6,28 @@
 {% block content %}
 <div class="cart">
   <h2>カート</h2>
+  <div class="purchase-form">
+    <form action="{% url "app:cart" %}" method="POST">{% csrf_token %}
+      <div class="purchase-form-container">
+        <div class="purchase-form-address">
+          <div>
+            {{ purchase_form.zip_code.label_tag }}
+            {{ purchase_form.zip_code }}
+            <input type="submit" name="search_address" value="住所を検索">
+          </div>
+          <div>
+            {{ purchase_form.address.label_tag }}
+            {{ purchase_form.address }}
+          </div>
+        </div>
+        <div class="purchase-form-pay">
+          請求額: {{ total_price | intcomma }}
+          <input type="submit" name="buy_product" class="purchasebutton" value="購⼊する">
+        </div>
+      </div>
+    </form>
+  </div>
+
   {% for product, num in cart_products.items %}
   <div class="order-product">
     <div class="order-product-image">
