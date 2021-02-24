@@ -16,7 +16,7 @@
           {% if request.user.is_authenticated %}
           <span>Point: {{ user.point | intcomma }}</span>
           <span><a href="{% url "app:fav_products" %}">お気に⼊り</a></span>
-          <span><a href="">カート</a></span>
+          <span><a href="{% url "app:cart" %}">カート</a></span>
           <span><a href="">注⽂履歴</a></span>
           <span><a href="{% url 'app:logout' %}">ログアウト</a></span>
           {% else %}

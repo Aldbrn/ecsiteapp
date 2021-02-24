@@ -21,6 +21,12 @@ urlpatterns = [
         views.toggle_fav_product_status,
         name="toggle_fav_product_status",
     ),
+    path("cart/", views.cart, name="cart"),
+    path(
+        "change_product_amount/",
+        views.change_product_amount,
+        name="change_product_amount",
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

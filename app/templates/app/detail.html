@@ -26,6 +26,19 @@
 
     </div>
     <p>{{ product.description }}</p>
+
+    <div>
+      {% if request.user.is_authenticated %}
+      <form action="{% url "app:detail" product.id %}" method="POST">{% csrf_token %}
+        {{ add_to_cart_form.as_p }}
+        <button class="purchase-button" type="submit">カートに追加する</button>
+      </form>
+      {% else %}
+      <a href="{% url "app:login" %}?next={{ request.path }}">
+        <button class="purchase-button">ログインして購入する</button>
+      </a>
+      {% endif %}
+    </div>
   </div>
 </div>
 {% endblock %}

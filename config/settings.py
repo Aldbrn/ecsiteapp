@@ -127,6 +127,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+SESSION_SAVE_EVERY_REQUEST = True
+
 LOGIN_URL = "app:login"
 
 LOGIN_REDIRECT_URL = "app:index"

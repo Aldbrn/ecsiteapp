@@ -1,0 +1,45 @@
+{% extends "app/base.html" %}
+
+{% load humanize %}
+{% load filters %}
+
+{% block content %}
+<div class="cart">
+  <h2>カート</h2>
+  {% for product, num in cart_products.items %}
+  <div class="order-product">
+    <div class="order-product-image">
+      <a href="{% url "app:detail" product.id %}">
+        <img src="{{ product.image.url }}" class="product-img">
+      </a>
+    </div>
+    <div class="order-product-info">
+      <h2>{{ product.name }}</h2>
+      <div>
+        価格:
+        <span class="info-value">
+          {{ product.price | intcomma }}
+        </span>
+      </div>
+      <div>
+        個数:<span class="info-value">{{ num | intcomma }}</span>
+      </div>
+      <hr>
+      <div>
+        ⼩計:
+        <span class="info-value">
+          {% multiply product.price num %}
+        </span>
+      </div>
+      <div class="order-product-amount-form">
+        <form action="{% url 'app:change_product_amount' %}" method="POST">{% csrf_token %}
+          <input type="hidden" name="product_id" value="{{ product.id }}">
+          <input type="submit" name="action_remove" value="1つ減らす">
+          <input type="submit" name="action_add" value="1つ増やす">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
